@@ -8,7 +8,12 @@ import (
 	"github.com/xenomote/machine/processor"
 )
 
-func reset() processor.Processor {
+type (
+    evt = processor.Event
+    pro = processor.Processor
+)
+
+func reset() pro {
     return dfa.Must(`
     start
         [1-9]   int
@@ -58,7 +63,7 @@ func reset() processor.Processor {
     `)
 }
 
-func driver(c rune) event.Event {
+func driver(c rune) evt {
 	return event.Where(map[string]bool{
 		"[1-9]": '1' <= c && c <= '9',
 		"[0-9]": '0' <= c && c <= '9',

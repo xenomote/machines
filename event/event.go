@@ -2,17 +2,17 @@ package event
 
 import "strings"
 
-type evt map[string]bool
+type event map[string]bool
 
-func (e evt) Matches(i string) bool {
+func (e event) Matches(i string) bool {
 	return e[i]
 }
 
-func (e evt) Empty() bool {
+func (e event) Empty() bool {
 	return len(e) == 0
 }
 
-func (e evt) String() string {
+func (e event) String() string {
 	s := strings.Builder{}
 
 	s.WriteRune('(')

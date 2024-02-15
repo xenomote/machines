@@ -1,6 +1,5 @@
 package dfa
 
-
 func parse(src string) (out *Config, err error) {
 	return &Config{"start", ConfigState{
 		"start": {

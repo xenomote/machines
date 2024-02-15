@@ -1,17 +1,17 @@
 /*
-Package event defines the events consumed and produced by processors
+Package event defines utility methods for creating events
 */
 package event
 
-import "github.com/xenomote/machine/assert"
+import (
+	"github.com/xenomote/machine/assert"
+	"github.com/xenomote/machine/processor"
+)
 
-type Event interface {
-	Matches(string) bool
-	Empty() bool
-}
+type evt = processor.Event
 
-func Of(cs ...string) Event {
-	e := evt{}
+func Of(cs ...string) evt {
+	e := event{}
 	for _, c := range cs {
 		e[c] = true
 	}
@@ -20,8 +20,8 @@ func Of(cs ...string) Event {
 	return e
 }
 
-func Where(conditions map[string]bool) Event {
-	e := evt{}
+func Where(conditions map[string]bool) evt {
+	e := event{}
 	for c, exists := range conditions {
 		if exists {
 			e[c] = true
@@ -32,7 +32,7 @@ func Where(conditions map[string]bool) Event {
 	return e
 }
 
-func check(e Event) {
+func check(e evt) {
 	if e == nil {
 		assert.That("event cannot be nil")
 	}

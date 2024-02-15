@@ -1,8 +1,6 @@
 /*
 Package dfa implements deterministic finite state automata processors
 
-# Deterministic finite state automata
-
   - matches input events to state transitions, with optional output events
   - ignores events outside the set of accepted inputs to allow composability
   - states transitioned to but not defined accept all inputs and do nothing
@@ -14,7 +12,6 @@ import (
 	"errors"
 
 	"github.com/xenomote/machine/assert"
-	"github.com/xenomote/machine/event"
 	"github.com/xenomote/machine/processor"
 )
 
@@ -28,7 +25,7 @@ var (
 
 // package internal alias for brevity
 type (
-	evt = event.Event
+	evt = processor.Event
 	pro = processor.Processor
 )
 

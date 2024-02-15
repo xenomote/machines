@@ -3,16 +3,14 @@ Package processor defines processors and methods for composing them
 */
 package processor
 
-import "github.com/xenomote/machine/event"
-
-// package internal alias for brevity
-type evt = event.Event
-
+// Processor provides abstraction for sequential input processing
 type Processor interface {
 	State() string
-	Step(evt) evt
+	Step(Event) Event
 }
 
-func Pipeline(ps ...Processor) Processor {
-	panic("feed one processor into the next")
+// Event is a set of conditions which may be tested for
+type Event interface {
+	Matches(string) bool
+	Empty() bool
 }
