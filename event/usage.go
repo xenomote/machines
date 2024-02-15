@@ -1,20 +1,13 @@
+/*
+Package event defines the events consumed and produced by processors
+*/
 package event
 
-import "github.com/xenomote/machine/bug"
+import "github.com/xenomote/machine/assert"
 
 type Event interface {
 	Matches(string) bool
 	Empty() bool
-}
-
-func check(e Event) {
-	if e == nil {
-		bug.Exit("event cannot be nil")
-	}
-
-	if e.Matches("") {
-		bug.Exit("events cannot match empty condition")
-	}
 }
 
 func Of(cs ...string) Event {
@@ -37,4 +30,14 @@ func Where(conditions map[string]bool) Event {
 
 	check(e)
 	return e
+}
+
+func check(e Event) {
+	if e == nil {
+		assert.That("event cannot be nil")
+	}
+
+	if e.Matches("") {
+		assert.That("events cannot match empty condition")
+	}
 }

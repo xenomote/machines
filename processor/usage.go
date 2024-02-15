@@ -1,3 +1,6 @@
+/*
+Package processor defines processors and methods for composing them
+*/
 package processor
 
 import "github.com/xenomote/machine/event"

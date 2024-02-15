@@ -1,9 +1,9 @@
-package bug
+package assert
 
 import (
 	"fmt"
 )
 
-func Exit(msg ...any) {
+func That(msg ...any) {
 	panic(fmt.Sprint(msg...))
 }

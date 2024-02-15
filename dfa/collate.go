@@ -1,11 +1,3 @@
-/*
-# deterministic finite state automata (DFA)
-
-  - matches input events to state transitions, with optional output events
-  - ignores events outside the set of accepted inputs to allow composability
-  - states transitioned to but not defined accept all inputs and do nothing
-  - inputs with no transition mappings go to the special empty error state
-*/
 package dfa
 
 import (

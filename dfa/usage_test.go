@@ -16,35 +16,34 @@ func reset() processor.Processor {
         '0'     zer
         
     int
+        eof     success
         [0-9]   dig
         [eE]    sci
         '.'     dot
-        eof     success
     
     neg
+        eof     success
         [1-9]   int
         '0'     zer
-        eof     success
     
     dig
+        eof     success
         [0-9]   dig
         [eE]    sci
         '.'     dot
-        eof     success
-    
     
     zer
+        eof     success
         [eE]    sci
         '.'     dot
-        eof     success
     
     dot
         [0-9]   dec
     
     dec
+        eof     success
         [0-9]   dec
         [eE]    sci
-        eof     success
     
     sci
         [0-9]   exp
@@ -54,8 +53,8 @@ func reset() processor.Processor {
         [0-9]   exp
     
     exp
-        [0-9]   exp
         eof     success
+        [0-9]   exp
     `)
 }
 

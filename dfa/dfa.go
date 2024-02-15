@@ -1,7 +1,7 @@
 package dfa
 
 import (
-	"github.com/xenomote/machine/bug"
+	"github.com/xenomote/machine/assert"
 	"github.com/xenomote/machine/event"
 )
 
@@ -24,7 +24,7 @@ func (m *dfa) Step(received evt) (out evt) {
 	defer func() {
 		// event cannot be nil
 		if out == nil {
-			bug.Exit("event is nil")
+			assert.That("event is nil")
 		}
 	}()
 
@@ -44,7 +44,7 @@ func (m *dfa) Step(received evt) (out evt) {
 
 		// matching multiple transitions is invalid behaviour for a deterministic machine
 		if matched {
-			bug.Exit("state", s, "event", received, "matched multiple transtions")
+			assert.That("state", s, "event", received, "matched multiple transtions")
 		}
 
 		e = t.output
