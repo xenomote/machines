@@ -2,57 +2,57 @@ package dfa_test
 
 import "github.com/xenomote/machine/dfa"
 
-func fromSource() pro {
+func fromSource() pst {
 	return fromConfig()
 
-	// once implemented
-	return dfa.Must(`
-    start
-        [1-9]   int
-        '-'     neg
-        '0'     zer
+	// // once implemented
+	// return dfa.Must(`
+    // start
+    //     [1-9]   int
+    //     '-'     neg
+    //     '0'     zer
         
-    int
-        eof     success
-        [0-9]   dig
-        [eE]    sci
-        '.'     dot
+    // int
+    //     eof     success
+    //     [0-9]   dig
+    //     [eE]    sci
+    //     '.'     dot
     
-    neg
-        eof     success
-        [1-9]   int
-        '0'     zer
+    // neg
+    //     eof     success
+    //     [1-9]   int
+    //     '0'     zer
     
-    dig
-        eof     success
-        [0-9]   dig
-        [eE]    sci
-        '.'     dot
+    // dig
+    //     eof     success
+    //     [0-9]   dig
+    //     [eE]    sci
+    //     '.'     dot
     
-    zer
-        eof     success
-        [eE]    sci
-        '.'     dot
+    // zer
+    //     eof     success
+    //     [eE]    sci
+    //     '.'     dot
     
-    dot
-        [0-9]   dec
+    // dot
+    //     [0-9]   dec
     
-    dec
-        eof     success
-        [0-9]   dec
-        [eE]    sci
+    // dec
+    //     eof     success
+    //     [0-9]   dec
+    //     [eE]    sci
     
-    sci
-        [0-9]   exp
-        [+-]    sgn
+    // sci
+    //     [0-9]   exp
+    //     [+-]    sgn
     
-    sgn
-        [0-9]   exp
+    // sgn
+    //     [0-9]   exp
     
-    exp
-        eof     success
-        [0-9]   exp
-    `)
+    // exp
+    //     eof     success
+    //     [0-9]   exp
+    // `)
 }
 
 func ExampleMustParse() {

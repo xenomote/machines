@@ -4,7 +4,7 @@ import (
 	"github.com/xenomote/machine/dfa"
 )
 
-func fromConfig() pro {
+func fromConfig() pst {
 	return dfa.Config.MustCollate(dfa.Config{"start", dfa.ConfigState{
 		"start": {
 			"[1-9]": {"int"},

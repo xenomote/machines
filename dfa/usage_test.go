@@ -10,6 +10,8 @@ import (
 type (
 	evt = processor.Event
 	pro = processor.Processor
+    stt = processor.Stateful
+    pst = interface{pro; stt}
 )
 
 // a battery of test examples
@@ -39,7 +41,7 @@ func mapper(c rune) evt {
 }
 
 // runs the provided machine over each example until an error is found
-func driver(m pro, examples []string) {
+func driver(m pst, examples []string) {
     for n, example := range examples {
         for i, c := range example {
             m.Step(mapper(c))
