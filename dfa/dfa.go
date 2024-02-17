@@ -21,16 +21,15 @@ func (m *dfa) State() string {
 }
 
 func (m *dfa) Step(received evt) (out evt) {
-	defer func() {
-		// event cannot be nil
+	defer func() { 
 		if out == nil {
-			assert.That("event is nil")
+			assert.That("event cannot be nil")
 		}
 	}()
 
 	e := event.Of()
 
-	// if the machine is out of bounds, do nothing
+	// if the machine is already out of bounds, do nothing
 	s, exists := m.states[m.current]
 	if !exists {
 		return e
@@ -44,7 +43,7 @@ func (m *dfa) Step(received evt) (out evt) {
 
 		// matching multiple transitions is invalid behaviour for a deterministic machine
 		if matched {
-			assert.That("state", s, "event", received, "matched multiple transtions")
+			assert.That("state", s, "event", received, "cannot match multiple transtions")
 		}
 
 		e = t.output

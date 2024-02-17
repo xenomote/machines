@@ -1,10 +1,5 @@
 /*
-Package dfa implements deterministic finite state automata processors
-
-  - matches input events to state transitions, with optional output events
-  - ignores events outside the set of accepted inputs to allow composability
-  - states transitioned to but not defined accept all inputs and do nothing
-  - inputs with no transition mappings go to the special empty error state
+Package dfa defines deterministic finite state automata processors
 */
 package dfa
 
