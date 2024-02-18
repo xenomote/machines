@@ -1,7 +1,5 @@
 package dfa_test
 
-import "github.com/xenomote/machine/dfa"
-
 func fromSource() pst {
 	return fromConfig()
 

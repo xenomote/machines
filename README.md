@@ -1,4 +1,11 @@
-# Text Processing Utilities (`tpro` `teepro`)
+# Event Processing Machines (`em`)
+
+## Installation
+
+
+## Usage
+
+
 
 ## Concepts
 
@@ -27,13 +34,18 @@ about a recieved character, and their respective meaning:
 the first would be set for characters 2 to 9, the second for the character 0,
 and both would be set for the character 1
 
-### Processor
-
 ### Deterministic Finite State Automaton (dfa)
+
+todo
 
 ### Regular Expression (rgx)
 
+todo
+
 ### Push Down Automaton (pda)
 
-### Context Free Grammar (cfg)
+todo
 
+### Context Free Grammars (cfg)
+
+todo
